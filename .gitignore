@@ -1,0 +1,30 @@
+# ===== 编译产物 =====
+target/
+*.class
+*.jar
+*.war
+
+# ===== Node 依赖与构建 =====
+node_modules/
+dist/
+build/
+
+# ===== IDE 与编辑器 =====
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# ===== 操作系统 =====
+Thumbs.db
+Desktop.ini
+
+# ===== 日志与临时文件 =====
+*.log
+logs/
+*.tmp
+*.bak
+
+# ===== 敏感信息（重要：绝不能提交）=====
+.env
+*.local
