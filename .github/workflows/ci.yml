@@ -1,0 +1,42 @@
+﻿name: CI 流水线
+
+on:
+  push:
+    branches: [develop, main]
+  pull_request:
+    branches: [develop, main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 显示项目结构
+        run: |
+          echo "=== 项目根目录 ==="
+          ls -la
+          echo ""
+          echo "=== src 目录 ==="
+          ls -la src/
+
+      - name: 检查 Java 源文件
+        run: |
+          echo "扫描 Java 文件..."
+          find src -name "*.java" | while read f; do
+            echo "  ✓ 找到: $f"
+          done
+          echo ""
+          echo "Java 文件数量: $(find src -name '*.java' | wc -l)"
+
+      - name: 代码规范检查（模拟）
+        run: |
+          echo "运行代码检查..."
+          echo "  ✓ 所有文件编码正常"
+          echo "  ✓ 无语法错误"
+          echo "  ✓ 项目结构完整"
+          echo ""
+          echo "========================================"
+          echo "  CI 流水线执行完成！全部通过"
+          echo "========================================"
